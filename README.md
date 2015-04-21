@@ -230,14 +230,7 @@ all things tech and I am forever grateful.
 
 CHANGELOG
 ---------
-The majord difference between this project's version and what I sent out
-previously is that the following have been implemented and/or updated:
-      (1) requirements.txt
-      (2) test-requirements.txt
-      (3) README.md
-      (4) process_new_contacts_unittest.py
-      (5) Exception handling added in get_new_contacts in file
-          process_new_contacts.py
+N/A
 
 AUTHORS
 -------
