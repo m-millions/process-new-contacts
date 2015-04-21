@@ -1,0 +1,2 @@
+#Currently this has not project requirements need to install in order to run
+the script: 'process_new_contacts.py'.
