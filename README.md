@@ -195,6 +195,10 @@ project shortly to get the coverage up to 100%.
 explains a little bit more about the limitations and expectations whe processing
 the project's accompanying csv file.
 
+(4) Spelling. Probably fix spelling in this README file.  The mote time I spend
+coding the worse I seem to get at spelling. No matter how many times I proof, I
+always miss something.
+
 COPYRIGHT and LICENSING
 -----------------------
 N/A
