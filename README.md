@@ -51,43 +51,43 @@ Sample data from the csv file looks like this:
 
 The resulting JSON object is then dumped to a file, and looks like this:
 
-{
-"errors": [
-5,
-7,
-16,
-31,
-39,
-40,
-43,
-45,
-46,
-47,
-49,
-50,
-58,
-59
-],
-"entries": [
-     {
-      "middle": " ",
-      "firstname": "Noah",
-      "color": "yellow",
-      "lastname": "Moench",
-      "telephone": "2326952394",
-      "zipcode": "123123121"
-     },
-     {
-      "middle": " ",
-      "firstname": "Ria",
-      "color": "aquamarine",
-      "lastname": "Tillotson",
-      "telephone": "1969105548",
-      "zipcode": "97671"
-     },
-     ...
-    ]
-}
+    {
+    "errors": [
+    5,
+    7,
+    16,
+    31,
+    39,
+    40,
+    43,
+    45,
+    46,
+    47,
+    49,
+    50,
+    58,
+    59
+    ],
+    "entries": [
+         {
+          "middle": " ",
+          "firstname": "Noah",
+          "color": "yellow",
+          "lastname": "Moench",
+          "telephone": "2326952394",
+          "zipcode": "123123121"
+         },
+         {
+          "middle": " ",
+          "firstname": "Ria",
+          "color": "aquamarine",
+          "lastname": "Tillotson",
+          "telephone": "1969105548",
+          "zipcode": "97671"
+         },
+         ...
+        ]
+    }
 
 The generated JSON object can be validated via wwww.jsonlint.com
 
@@ -135,6 +135,7 @@ will not be passed to the final JSON object for comsumption by a client.
 Sample output to the console for each record that fails to process:
 
 Sample errors printed to the console:
+
     Record is not a valid length.
     [5]
     Color, Telephone, or Zipcode not valid.
