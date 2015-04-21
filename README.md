@@ -27,6 +27,7 @@ has been disabled.  It is commented out on the code ( It has one known bug. ),
 please feel free to activate it an use it at will.
 
 The 'input_file' and 'output_file' variables have been hard-coded as such:
+
     input_file = 'new_contacts.csv'
     output_file = 'new_contacts.json'
 
@@ -213,15 +214,15 @@ Feel free to remove the print statements at will.
 
 CREDITS and ACKNOWLEDGEMENTS
 ----------------------------
+
 www.stackoverflow.com
 https://docs.python.org
 www.google.com
 http://jsonlint.com/
+http://www.giantflyingsaucer.com/  - Chad Lung - who even though he wasn't
+on-hand for this project, he was an continues to be an incredible mentor on
+all things tech and I am forever grateful.
 
-Chad Lung - who even though he wasn't on-hand for this project, he was an
-continues to be an incredible mentor on all things tech and I am forever
-grateful.
-http://www.giantflyingsaucer.com/
 
 CHANGELOG
 ---------
