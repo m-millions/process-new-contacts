@@ -12,26 +12,28 @@ from the Python standard library and on additional packages will have to be
 installed, locally, for the script to work successfully.
 
 
-A 'test-requirements.txt' has been included (as good practice).  These packages
-are meant to be installed only in a local, testing environment, and not meant to
-be part of the production stack requirements.  The are not necessary to run the
-unittests, but thought I should inclue reference to nose, pep8, and pylint. All
-code lines are no longer than 80 chars and any tabs have been replaces with
-spaces.
+A 'test-requirements.txt' has been included ( as good practice ).  These
+packages are meant to be installed only in a local, testing environment, and not
+meant to be part of the production stack requirements.  These are not necessary
+to run the unittests, but thought I should inclue reference to nose, pep8, and
+pylint.
+
 
 OPERATING INSTRUCTIONS
 ----------------------
 The 'process_new_contacts.py' script is designed to be executed at the command
 line, but the feature which allows you to pass parameters at the command line
-has been disabled.  It is commented out on the code ( It has one known bug. ),
-please feel free to activate it an use it at will.
+has been disabled.  It is commented out on the code ( It has one known bug,
+which is detailed in the 'KNOWN BUGS' section below. ), please feel free to
+activate it an use it at will.
 
 The 'input_file' and 'output_file' variables have been hard-coded as such:
 
     input_file = 'new_contacts.csv'
     output_file = 'new_contacts.json'
 
-WHAT THE CODE DOES
+
+WHAT the CODE DOES
 ------------------
 The script takes and existing comma delimed file and iterates through its
 records, applies various rules to determine if the record is valid, and converts
@@ -92,6 +94,7 @@ The resulting JSON object is then dumped to a file, and looks like this:
 
 The generated JSON object can be validated via wwww.jsonlint.com
 
+
 KNOWN BUGS
 ----------
 In scritp 'processs_new_contacts.py' the breaks in the following code were
@@ -130,12 +133,14 @@ should be there.
 The reason why they should be there is that the current logic will not process a
 record if one or more of the elements being passed fails the validation.  The
 break here ensures the rest of the record isn't iterated through, because that
-is a waste of CPU cycles.  Even though the breaks are commented out the record
-will not be passed to the final JSON object for comsumption by a client.
+is a waste of CPU cycles ( though that is negligable when processing a file this
+size, it does make a difference whe processing larger data files, or processing
+data on across multiple physical and memory nodes ).  Even though the breaks are
+commented out the record will not be passed to the final JSON object for
+comsumption by a client.
 
-Sample output to the console for each record that fails to process:
-
-Sample errors printed to the console:
+Sample output to the console for each record that fails to process looks like
+this:
 
     Record is not a valid length.
     [5]
@@ -172,6 +177,21 @@ Sample errors printed to the console:
     Color, Telephone, or Zipcode not valid.
     [5, 7, 16, 31, 39, 40, 43, 45, 46, 47, 49, 50, 58, 59]
 
+The persistance of the data construct position ( e.g. [5] ), shows the record
+number which has failed processing.  It is the last  number in this list which
+will tell what current record failed as the messages are shown on the console.
+
+The accompanying line tells what the issue was.  As you can see here the
+'details need to be hasseled', as the message tells the data being validated by
+this part of the code is not in the expected format, but it's hard to tell what
+specific data type failed validation.
+
+In addition, the validation algorithm should stop processing the immediate
+record and move on to the next as soon as it finds an error.  Here, as you can
+see, it finds an error but moves on to the next position in the data construct -
+this is detailed as a bug in the "KNOW BUGS" section above.
+
+
 TESTING METHODOLOGY
 -------------------
 The bulk of the unittests focus on testing the functionality in 'get_clean_data'
@@ -185,36 +205,39 @@ but since it's the methods outside of the 'process_contacts' function, I saw
 it save for this small example to ommit the mocking from testing.  However, in
 practice, this part of the code should be properly mocked and tested.
 
+
 WAYS TO IMPROVE ON THIS CODE
 ----------------------------
 (1) Currently the test coverage is at 72%.  I will be coming back to this
 project shortly to get the coverage up to 100%.
 
-(2) Fix known bugs deatiled above in the "Known Bugs" section.
+(2) Fix known bugs detailed above in the "Known Bugs" section.
 
 (3) Update the "WHAT THE CODE DOES" section of this README file so that it
 explains a little bit more about the limitations and expectations whe processing
 the project's accompanying csv file.
 
-(4) Spelling. Probably fix spelling in this README file.  The mote time I spend
+(4) Spelling. Probably fix spelling in this README file.  The more time I spend
 coding the worse I seem to get at spelling. No matter how many times I proof, I
 always miss something.
 
+
 COPYRIGHT and LICENSING
 -----------------------
-N/A
+Use and extend at will - credit the author.
+
 
 TROUBLESHOOTING
 ---------------
 All print statements were left commented out but still in the code, this was
-doen to faciliate de-bugging (if needed) for anyone not using other tools like
+doen to faciliate de-bugging ( if needed ) for anyone not using other tools like
 pdb, iPython, etc...
 
 Feel free to remove the print statements at will.
 
+
 CREDITS and ACKNOWLEDGEMENTS
 ----------------------------
-
 www.stackoverflow.com
 
 https://docs.python.org
@@ -223,18 +246,21 @@ www.google.com
 
 http://jsonlint.com
 
-http://www.giantflyingsaucer.com/  - Chad Lung - who even though he wasn't
-on-hand for this project, he was an continues to be an incredible mentor on
-all things tech and I am forever grateful.
+http://www.giantflyingsaucer.com/  - Chad Lung, who continues to be an
+incredible mentor on all things tech and I am forever grateful.
 
 
-CHANGELOG
+CHANGE LOG
 ---------
 N/A
+
 
 AUTHORS
 -------
 Claudia Ventresca
 
+
 CONTACT INFO
 ------------
+Feel free to contact me via this github account to disucuss potential business
+opportunities.
