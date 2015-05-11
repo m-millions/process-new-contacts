@@ -37,16 +37,16 @@ def get_new_contacts(input_file, output_file):
         #print('File exists!')
         #Open the file to start processing data
         with open(input_file, 'r') as f:
-            data = csv.reader(f)
+            contacts = csv.reader(f)
             _RNUM = 0
             #print(_RNUM)
-            for r in data:
-                name = r[0]
+            for contact in contacts:
+                name = contact[0]
                 name = name.split( )
                 #print(name)
                 #print(len(name))
                 #clean up string before processing
-                clean_r = get_clean_data(r)
+                clean_r = get_clean_data(contact)
                 #print(r)
                 #print(clean_r)
                 all_rs = process_contacts(clean_r, name, _RNUM)
@@ -213,7 +213,6 @@ def main():
     #        output_file=a
     # Uncomment to see value of args passed at the command line
     # print ("Input file : %s and output file: %s" % (input_file, output_file))
-
     get_new_contacts(input_file, output_file)
 
 if __name__ == '__main__':
